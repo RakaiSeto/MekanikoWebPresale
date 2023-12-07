@@ -7,7 +7,9 @@
         <a href="/signout" class="btn-2 text-decoration-none">Sign Out</a>
         @else
         <nav class="navbar navbar-expand-lg px-3 justify-content-center">
-            <h3>Mekaniko Presale</h3>
+            <a href="/" class="text-decoration-none">
+                <h3>Mekaniko Presale</h3>
+            </a>
         @endif
 
     </nav>
