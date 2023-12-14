@@ -31,11 +31,16 @@ Route::group(['middleware' => ['webclientauth']], function () {
     Route::get('/inputcompany', 'App\Http\Controllers\Dashboard\DashboardController@showInputPage');
     Route::post('/inputcompany', 'App\Http\Controllers\Dashboard\DashboardController@showInputPage');
     Route::post('/submitcompany', 'App\Http\Controllers\Dashboard\DashboardController@submitCompany');
-    // Route::prefix('admin')->group(function () {
-    //     Route::get('/token', 'App\Http\Controllers\Admin\TokenController@showPage')->name('admintoken');
-    //     Route::post('/token', 'App\Http\Controllers\Admin\TokenController@showPage')->name('admintoken');
-    //     Route::post('/inputtoken', 'App\Http\Controllers\Admin\TokenController@inputToken');
-    // });
+});
+Route::get('/event', function() {
+    return view('pages.qr.signin');
+});
+Route::get('/event/login/{id}', 'App\Http\Controllers\Qr\QrController@doLogin')->name('dashboard');
+
+Route::group(['middleware' => ['qrclientauth']], function () {
+    Route::get('/event/{id}/dashboard', 'App\Http\Controllers\Qr\QrController@showInputPage');
+    Route::post('/event/{id}/dashboard', 'App\Http\Controllers\Qr\QrController@showInputPage');
+    Route::post('/event/{id}/submitcompany', 'App\Http\Controllers\Qr\QrController@submitCompany');
 });
 
 // Route::middleware(['adminauth'])->prefix('admin')->group(function () {

@@ -16,7 +16,7 @@
                 {{-- <div class="text-right">
                     <a href="/resetpassword">Forgot Password?</a>
                 </div> --}}
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-primary mx-auto">Sign In</button>
             </form>
             @if (session('message'))
                 &nbsp

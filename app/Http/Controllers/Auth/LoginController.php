@@ -36,6 +36,7 @@ class LoginController extends Controller
 
     function doLogin(Request $request) {
         Log::debug('doLogin is called.');
+        $request->session()->flush();
 
         $grpcClient = new PresalesServiceClient(webClientGRPCAddress, ['credentials' => ChannelCredentials::createInsecure(),]);
 

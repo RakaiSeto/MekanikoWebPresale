@@ -32,7 +32,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "GPBMetadata\\": "grpc/GPBMetadata",
             "Presales\\": "grpc/Presales",
-            "General\\": "grpc/General"
+            "General\\": "grpc/General",
+            "SalesActivity\\": "grpc/SalesActivity"
         },
         "files": [
             "app/Helpers/GeneralHelper.php"

@@ -1,0 +1,227 @@
+syntax = "proto3";
+option go_package = ".";
+package SalesActivity;
+
+message SalesActivityLoginRequest {
+  string remoteip = 1;
+  string langid = 2;
+  string weburl = 3;
+  string activityid = 4;
+}
+message SalesActivityLoginList {
+  string signature = 1;
+  string activityid = 2;
+  string uniqueid = 3;
+  string activityname = 4;
+}
+message SalesActivityLoginResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivityLoginList results = 3;
+}
+
+message SalesActivityProfileRequest {
+  string signature = 1;
+  string remoteip = 2;
+  repeated SalesActivityProfileData data = 3;
+}
+message SalesActivityProfileData {
+  string firstname = 1;
+  string lastname = 2;
+  string emailress = 3;
+  string phone = 4;
+}
+message SalesActivityProfileList {
+  string firstname = 1;
+  string lastname = 2;
+  string emailress = 3;
+  string phone = 4;
+}
+message SalesActivityProfileResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivityProfileList results = 3;
+}
+
+message SalesActivityCategoryRequest {
+  string signature = 1;
+  string remoteip = 2;
+  repeated SalesActivityCategoryData data = 3;
+}
+message SalesActivityCategoryData {
+  string categoryid = 1;
+  string subcategoryid = 2;
+}
+message SalesActivityCategoryList {
+  string categoryid = 1;
+  string subcategoryid = 2;
+  string category = 3;
+  string subcategory = 4;
+}
+message SalesActivityCategoryResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivityCategoryList results = 3;
+}
+
+message SalesActivityCompanyRequest {
+  string signature = 1;
+  string remoteip = 2;
+  repeated SalesActivityCompanyData data = 3;
+}
+message SalesActivityCompanyData {
+  string brand = 1;
+  string company = 2;
+  string ress = 3;
+  string city = 4;
+  string region = 5;
+  string country = 6;
+  string zipcode = 7;
+  string email = 8;
+  string phone = 9;
+  string fax = 10;
+  string website = 11;
+}
+message SalesActivityCompanyList {
+  string category = 1;
+  string subcategory = 2;
+}
+message SalesActivityCompanyResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivityCompanyList results = 3;
+}
+
+message SalesActivityConfirmationRequest {
+  string signature = 1;
+  string remoteip = 2;
+}
+message SalesActivityConfirmationProfile {
+  string firstname = 1;
+  string lastname = 2;
+  string emailress = 3;
+  string phone = 4;
+}
+message SalesActivityConfirmationCategory {
+  string category = 1;
+  string subcategory = 2;
+}
+message SalesActivityConfirmationCompany {
+  string brand = 1;
+  string company = 2;
+  string ress = 3;
+  string city = 4;
+  string region = 5;
+  string country = 6;
+  string zipcode = 7;
+  string email = 8;
+  string phone = 9;
+  string fax = 10;
+  string website = 11;
+}
+message SalesActivityConfirmationResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivityConfirmationProfile profile = 3;
+  repeated SalesActivityConfirmationCategory category = 4;
+  repeated SalesActivityConfirmationCompany company = 5;
+}
+
+message SalesActivitySaveRequest {
+  string signature = 1;
+  string remoteip = 2;
+  string langid = 3;
+  string weburl = 4;
+  string activityid = 5;
+  string uniqueid = 6;
+  bool isdelete = 7;
+  repeated SalesActivitySaveDataProfile profile = 8;
+  repeated SalesActivitySaveDataCategory category = 9;
+  repeated SalesActivitySaveDataCompany company = 10;
+}
+message SalesActivitySaveDataProfile {
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
+  string phone = 4;
+}
+message SalesActivitySaveDataCategory {
+  string roleid = 1;
+  string categoryid = 2;
+  string subcategoryid = 3;
+}
+message SalesActivitySaveDataCompany {
+  string brand = 1;
+  string company = 2;
+  string address = 3;
+  string city = 4;
+  string region = 5;
+  string country = 6;
+  string zipcode = 7;
+  string email = 8;
+  string phone = 9;
+  string fax = 10;
+  string website = 11;
+}
+message SalesActivitySaveList {
+  string type = 1;
+  string email = 2;
+  string password = 3;
+}
+message SalesActivitySaveResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivitySaveList results = 3;
+}
+
+message SalesActivityActivationRequest {
+  string remoteip = 1;
+  string langid = 2;
+  string weburl = 3;
+  string targetid = 4;
+}
+message SalesActivityActivationProfile {
+  string firstname = 1;
+  string lastname = 2;
+  string email = 3;
+  string phone = 4;
+}
+message SalesActivityActivationCategory {
+  string roleid = 1;
+  string categoryid = 2;
+  string subcategoryid = 3;
+}
+message SalesActivityActivationCompany {
+  string brand = 1;
+  string company = 2;
+  string address = 3;
+  string city = 4;
+  string region = 5;
+  string country = 6;
+  string zipcode = 7;
+  string email = 8;
+  string phone = 9;
+  string fax = 10;
+  string website = 11;
+}
+message SalesActivityActivationList {
+  string type = 1;
+  string email = 2;
+  string password = 3;
+}
+message SalesActivityActivationResponse {
+  string status = 1;
+  string description = 2;
+  repeated SalesActivitySaveList results = 3;
+}
+
+service SalesActivityService {
+
+  rpc DoSalesActivityLogin(SalesActivityLoginRequest) returns (SalesActivityLoginResponse) {}
+//  rpc DoSalesActivityProfile(SalesActivityProfileRequest) returns (SalesActivityProfileResponse) {}
+//  rpc DoSalesActivityCategory(SalesActivityCategoryRequest) returns (SalesActivityCategoryResponse) {}
+//  rpc DoSalesActivityCompany(SalesActivityCompanyRequest) returns (SalesActivityCompanyResponse) {}
+//  rpc DoSalesActivityConfirmation(SalesActivityConfirmationRequest) returns (SalesActivityConfirmationResponse) {}
+  rpc DoSalesActivitySave(SalesActivitySaveRequest) returns (SalesActivitySaveResponse) {}
+
+}
