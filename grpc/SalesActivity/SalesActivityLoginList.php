@@ -29,6 +29,22 @@ class SalesActivityLoginList extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string activityname = 4;</code>
      */
     protected $activityname = '';
+    /**
+     * Generated from protobuf field <code>string activitylocation = 5;</code>
+     */
+    protected $activitylocation = '';
+    /**
+     * Generated from protobuf field <code>string activitycity = 6;</code>
+     */
+    protected $activitycity = '';
+    /**
+     * Generated from protobuf field <code>string activitystart = 7;</code>
+     */
+    protected $activitystart = '';
+    /**
+     * Generated from protobuf field <code>string activityend = 8;</code>
+     */
+    protected $activityend = '';
 
     /**
      * Constructor.
@@ -40,6 +56,10 @@ class SalesActivityLoginList extends \Google\Protobuf\Internal\Message
      *     @type string $activityid
      *     @type string $uniqueid
      *     @type string $activityname
+     *     @type string $activitylocation
+     *     @type string $activitycity
+     *     @type string $activitystart
+     *     @type string $activityend
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +151,94 @@ class SalesActivityLoginList extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->activityname = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitylocation = 5;</code>
+     * @return string
+     */
+    public function getActivitylocation()
+    {
+        return $this->activitylocation;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitylocation = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setActivitylocation($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->activitylocation = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitycity = 6;</code>
+     * @return string
+     */
+    public function getActivitycity()
+    {
+        return $this->activitycity;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitycity = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setActivitycity($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->activitycity = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitystart = 7;</code>
+     * @return string
+     */
+    public function getActivitystart()
+    {
+        return $this->activitystart;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activitystart = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setActivitystart($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->activitystart = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activityend = 8;</code>
+     * @return string
+     */
+    public function getActivityend()
+    {
+        return $this->activityend;
+    }
+
+    /**
+     * Generated from protobuf field <code>string activityend = 8;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setActivityend($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->activityend = $var;
 
         return $this;
     }

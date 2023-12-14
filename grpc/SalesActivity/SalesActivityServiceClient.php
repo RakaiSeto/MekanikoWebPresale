@@ -48,4 +48,18 @@ class SalesActivityServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \SalesActivity\SalesActivityUploadRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function DoSalesActivityUpload(\SalesActivity\SalesActivityUploadRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/SalesActivity.SalesActivityService/DoSalesActivityUpload',
+        $argument,
+        ['\SalesActivity\SalesActivityUploadResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

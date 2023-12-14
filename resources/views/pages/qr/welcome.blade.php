@@ -126,27 +126,27 @@
         }
     </style>
     <div class="d-flex mx-auto mx-auto flex-column" style="width:95vw">
-        <div class="wrapper text-center me-2 mt-2 d-flex justify-content-center">
+        <div class="wrapper text-center me-2 mt-3 mb-2 d-flex justify-content-center">
 
-            <div style="width: 50px; height:50px; color:#666; border:2px solid #666; font:46px Arial; line-height:50px;" id="number1" class=" rounded-circle">1</div>
+            <div style="width: 30px; height:30px; color:#666; border:2px solid #666; font:26px Arial; line-height:30px;" id="number1" class=" rounded-circle">1</div>
 
-            <div style="height: 50px; opacity:0.2" id="buffer1">
-                <div style="width: 50px; height:1px; border: 2px solid #666; margin-top:24.5px"></div>
+            <div style="height: 30px; opacity:0.2" id="buffer1">
+                <div style="width: 30px; height:1px; border: 2px solid #666; margin-top:14.5px"></div>
             </div>
 
-            <div style="width: 50px; height:50px; color:#666; border:2px solid #666; font:46px Arial; line-height:50px; opacity:0.2" id="number2" class=" rounded-circle">2</div>
+            <div style="width: 30px; height:30px; color:#666; border:2px solid #666; font:26px Arial; line-height:30px; opacity:0.2" id="number2" class=" rounded-circle">2</div>
 
-            <div style="height: 50px; opacity:0.2" id="buffer2">
-                <div style="width: 50px; height:1px; border: 2px solid #666; margin-top:24.5px"></div>
+            <div style="height: 30px; opacity:0.2" id="buffer2">
+                <div style="width: 30px; height:1px; border: 2px solid #666; margin-top:14.5px"></div>
             </div>
 
-            <div style="width: 50px; height:50px; color:#666; border:2px solid #666; font:46px Arial; line-height:50px; opacity:0.2" id="number3" class="rounded-circle">3</div>
+            <div style="width: 30px; height:30px; color:#666; border:2px solid #666; font:26px Arial; line-height:30px; opacity:0.2" id="number3" class="rounded-circle">3</div>
 
-            <div style="height: 50px; opacity:0.2" id="buffer3">
-                <div style="width: 50px; height:1px; border: 2px solid #666; margin-top:24.5px"></div>
+            <div style="height: 30px; opacity:0.2" id="buffer3">
+                <div style="width: 30px; height:1px; border: 2px solid #666; margin-top:14.5px"></div>
             </div>
 
-            <div style="width: 50px; height:50px; color:#666; border:2px solid #666; font:46px Arial; line-height:50px; opacity:0.2" id="number4" class="rounded-circle">4</div>
+            <div style="width: 30px; height:30px; color:#666; border:2px solid #666; font:26px Arial; line-height:30px; opacity:0.2" id="number4" class="rounded-circle">4</div>
         </div>
 
         <div class="wrapper mt-2">
@@ -158,38 +158,38 @@
                     <div class="text-justify">
                         <form>
                             <div class="row">
-                                <div class="col">
-                                    <label for="exampleInputPassword1" class="form-label m-0">Brand<label for="" style="color: red">*</label></label>
+                                <div class="col mb-3">
+                                    <label for="exampleInputPassword1" class="form-label m-0">Brand<label for="" style="color: red" class="m-0">*</label></label>
                                   <input type="text" class="form-control1" id="brandinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <label for="exampleInputPassword1" class="form-label m-0">Company<label for="" style="color: red">*</label></label>
+                                <div class="col mb-3">
+                                    <label for="exampleInputPassword1" class="form-label m-0">Company<label for="" style="color: red" class="m-0">*</label></label>
                                   <input type="text" class="form-control1" id="companyinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <label for="exampleInputPassword1" class="form-label m-0">Address<label for="" style="color: red">*</label></label>
+                                <div class="col mb-3">
+                                    <label for="exampleInputPassword1" class="form-label m-0">Address<label for="" style="color: red" class="m-0">*</label></label>
                                   <input type="text" class="form-control1" id="addressinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <label for="exampleInputPassword1" class="form-label m-0">City<label for="" style="color: red">*</label></label>
+                                <div class="col mb-3">
+                                    <label for="exampleInputPassword1" class="form-label m-0">City<label for="" style="color: red" class="m-0">*</label></label>
                                   <input type="text" class="form-control1" id="cityinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Region</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Region</label>
                                   <input type="text" class="form-control1" id="regioninput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <label for="exampleInputPassword1" class="form-label m-0">Country<label for="" style="color: red">*</label></label>
+                                <div class="col mb-3">
+                                    <label for="exampleInputPassword1" class="form-label m-0">Country<label for="" style="color: red" class="m-0">*</label></label>
                                     <select class="form-select" onchange="handleClick()" id="countryinput" aria-label="Default select example">
                                         <option disabled selected value class="opacity-0"> -- select an option -- </option>
                                         @foreach ($country as $value1)
@@ -199,40 +199,42 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Zipcode</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Zipcode</label>
                                   <input type="number" class="form-control1" id="zipcodeinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Email</label>
                                   <input type="email" class="form-control1" id="compemailinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Phone</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Phone</label>
                                   <input type="number" class="form-control1" id="compphoneinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Fax</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Fax</label>
                                   <input type="number" class="form-control1" id="compfaxinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <label for="exampleInputEmail1" class="form-label">Website</label>
+                                <div class="col mb-3">
+                                  <label for="exampleInputEmail1" class="form-label m-0">Website</label>
                                   <input type="url" class="form-control1" id="compwebsiteinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div> 
-                <button class="btn-primary btn mb-4 mt-2 rounded" id="beforebtn-4">before</button>
-                <button class="btn-primary btn mb-4 mt-2 rounded" disabled id="summarybtn" data-toggle="modal" data-target="#modalSummary">view summary</button>
+                <div class="w-100 d-flex justify-content-center">
+                    <button class="btn-primary btn mb-4 mt-2 rounded me-1" id="beforebtn-4">before</button>
+                    <button class="btn-primary btn mb-4 mt-2 rounded ms-1" disabled id="summarybtn" data-toggle="modal" data-target="#modalSummary">view summary</button>
+                </div>
             </div>
 
             <div id="form-3" class="the-form rounded p-4">
@@ -243,15 +245,15 @@
                     <div class="text-justify">
                         <form>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Profile Role<label for="" style="color: red">*</label></label>
+                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Profile Role<label for="" style="color: red" class="m-0">*</label></label>
                                 <select class="form-select" aria-label="Default select example" id="roleinput">
                                     <option disabled selected value class="opacity-0"> -- select an option -- </option>
-                                    <option value="ROLE005">Principal Admin</option>
-                                    <option value="ROLE012">Distributor Admin</option>
+                                    <option value="ROLE005">Principal</option>
+                                    <option value="ROLE012">Distributor</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Company Category<label for="" style="color: red">*</label></label>
+                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Company Category<label for="" style="color: red" class="m-0">*</label></label>
                                 <br>
                                 <select class="form-select" onchange="handleClick()" id="catinput" aria-label="Default select example">
                                     <option disabled selected value class="opacity-0"> -- select an option -- </option>
@@ -261,7 +263,7 @@
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Company Subcategory<label for="" style="color: red">*</label></label>
+                                <label for="exampleInputPassword1" class="form-label w-100 m-0">Company Subcategory<label for="" style="color: red" class="m-0">*</label></label>
                                 <br>
                                 <select class="form-select" aria-label="Default select example" id="subcatinput">
                                     <option disabled selected value> -- select an option -- </option>
@@ -275,8 +277,10 @@
                         </form>
                     </div>
                 </div> 
-                <button class="btn-primary btn mb-4 mt-2 rounded" id="beforebtn-3">before</button>
-                <button class="btn-primary btn mb-4 mt-2 rounded" disabled id="nextbtn-3">next</button>
+                <div class="w-100 d-flex justify-content-center">
+                    <button class="btn-primary btn mb-4 mt-2 rounded me-1" id="beforebtn-3">before</button>
+                    <button class="btn-primary btn mb-4 mt-2 rounded ms-1" disabled id="nextbtn-3">next</button>
+                </div>
             </div>
 
             <div id="form-2" class="the-form rounded p-4">
@@ -287,40 +291,60 @@
                     <div class="text-justify">
                         <form>
                             <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label m-0">First Name<label for="" style="color: red">*</label></label>
+                              <label for="exampleInputEmail1" class="form-label m-0">First Name<label for="" style="color: red" class="m-0">*</label></label>
                               <input type="text" class="form-control1" id="firstnameinput" aria-describedby="firstnameinput">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label m-0">Last Name<label for="" style="color: red">*</label></label>
+                              <label for="exampleInputEmail1" class="form-label m-0">Last Name<label for="" style="color: red" class="m-0">*</label></label>
                               <input type="text" class="form-control1" id="lastnameinput" aria-describedby="lastnameinput">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label m-0">Email address<label for="" style="color: red">*</label></label>
+                              <label for="exampleInputEmail1" class="form-label m-0">Email address<label for="" style="color: red" class="m-0">*</label></label>
                               <input type="email" class="form-control1" id="emailinput" aria-describedby="emailinput">
                             </div>
                             <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label m-0">Phone Number<label for="" style="color: red">*</label></label>
+                              <label for="exampleInputPassword1" class="form-label m-0">Phone Number<label for="" style="color: red" class="m-0">*</label></label>
                               <input type="phone" class="form-control1" id="phoneinput">
                             </div>
                         </form>
                     </div>
-                </div> 
-                <button class="btn-primary btn mb-4 rounded" id="beforebtn-2">before</button>
-                <button class="btn-primary btn mb-4 rounded" disabled id="nextbtn-2">next</button>
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <button class="btn-primary btn mb-4 rounded me-1" id="beforebtn-2">before</button>
+                    <button class="btn-primary btn mb-4 rounded ms-1" disabled id="nextbtn-2">next</button>
+                </div>
             </div>
 
             <div id="form-1" class="the-form-front rounded p-4">
-                <div style="height:90%; overflow-y:auto" class="pb-3">
-                    <div class="section-title text-center">
+                <div style="height:90%; overflow-y:auto;" class="d-flex flex-column pb-3 justify-content-center">
+                    {{-- <div class="section-title text-center">
                         <h2 class="ec-title mx-auto text-dark p-0">Welcome to Mekaniko+</h2>
+                    </div> --}}
+                    <div class="text-center">
+                        <h2 class=" mb-3" style="font-size: 2.5em"><strong>{{session('activityname')}}</strong></h2>
+                        @if (session('activitylocation') != "" || session('activitycity') != "")
+                            @if (session('activitylocation') != "" && session('activitycity') != "")
+                            <h4 class="">{{session('activitylocation')}}, {{session('activitycity')}}</h4>
+                            @elseif (session('activitylocation') == "")
+                            <h4 class="">{{session('activitycity')}}</h4>
+                            @else
+                            <h4 class="">{{session('activitylocation')}}</h4>
+                            @endif
+                        @endif
+
+                        @if (session('activityend') == "")
+                        <h4 class="">{{session('activitystart')}}</h4>
+                        @elseif (session('activityend') == session('activitystart'))
+                        <h4 class="">{{session('activitystart')}}</h4>
+                        @else
+                        <h4 class="">{{session('activitystart')}} - {{session('activityend')}}</h4>
+                        @endif
                     </div>
-                    <div class="text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ad, inventore modi sed nobis non suscipit odit corrupti doloribus distinctio rerum voluptas commodi doloremque dolorem at nulla officiis numquam omnis consequuntur eius vel porro culpa tenetur! Libero placeat doloremque distinctio, deleniti, suscipit eius vel ea, quod voluptatem provident et fugit. Repellendus tempore facilis maiores rem exercitationem debitis, officiis porro ipsa repellat molestiae dolor quod perspiciatis voluptates dolorem aliquam. Nostrum perspiciatis mollitia delectus iure. Numquam repellendus consectetur ipsa, doloribus aspernatur voluptates necessitatibus, voluptas delectus sapiente aliquam animi. Et fugit inventore sunt neque. Doloremque ipsam minus est aliquid sapiente obcaecati pariatur modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptatum eius doloremque, harum, iusto repellendus itaque magnam similique corporis explicabo optio fugit earum animi? Nisi unde cupiditate voluptas repellendus alias quod cum rerum eum doloribus neque ea mollitia voluptatibus labore tempora, totam magnam quidem quisquam ipsum. Adipisci sapiente, officiis eveniet minima obcaecati, quam distinctio impedit ut corrupti error, eum molestias eius magni quasi eos aliquam ipsam! Eveniet blanditiis, officia placeat, fugit veritatis in, labore voluptatibus exercitationem rerum assumenda maxime voluptate atque! Temporibus deleniti, totam ipsum ad vel suscipit facilis quisquam unde facere, soluta, saepe veritatis expedita sed id aspernatur laboriosam eveniet distinctio impedit culpa cumque eaque fugit corporis? Quibusdam optio aliquam accusantium dolore magnam amet, ab voluptates illum excepturi eos saepe consectetur accusamus vel nesciunt facere praesentium rerum voluptatem quasi ipsam? Voluptates labore dolor at ipsum vero dolores saepe dignissimos est architecto. Ad sapiente libero temporibus nostrum consectetur aliquid explicabo quod quae saepe. Eius, quia! Nihil reprehenderit necessitatibus eaque earum consequatur laboriosam molestias at? Perspiciatis ex iure hic dignissimos sunt fugit at suscipit sequi in possimus. Maiores unde optio alias! Itaque ullam architecto fugiat ad nulla harum ex autem sint, animi incidunt quos, perferendis assumenda esse aperiam voluptates totam ipsum.
-                    </div>
-                    <button class="btn btn-primary rounded" data-toggle="modal" data-target="#modalTNC">Read our terms and condition</button>
+                    <button class="btn btn-primary rounded mx-auto mt-3" style="height: 30px; line-height:30px" data-toggle="modal" data-target="#modalTNC">Read our terms and condition</button>
                 </div>
-                <button class="btn-primary btn mb-4 mt-2 rounded" disabled >before</button>
-                <button class="btn-primary btn mb-4 mt-2 rounded" disabled id="nextbtn-1">next</button>
+                <div class="w-100 d-flex justify-content-center">
+                    <button class="btn-primary btn mb-4 mt-2 rounded ms-1" disabled id="nextbtn-1">next</button>
+                </div>
             </div>
         </div>
     </div>
@@ -330,12 +354,12 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header px-4 flex-column">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add Company</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Terms and Conditions</h5>
             </div>
 
             <div class="modal-body px-4">
                 <div class="row mb-2">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sunt quo laboriosam eaque delectus ex vero asperiores libero necessitatibus quidem quibusdam, nemo doloribus praesentium quaerat maiores voluptate, sint aperiam! Illum, aspernatur iure in eos rem hic quia, id perferendis nemo dolores voluptatibus quis neque ea. Accusamus doloribus sapiente aliquam ut quia voluptatum veniam incidunt ratione. Repellat aspernatur placeat dolorum nihil laborum laboriosam corrupti adipisci nisi aliquid! Perspiciatis consequatur veritatis rem cupiditate atque, blanditiis unde eius beatae. Quisquam odio nihil, distinctio nostrum ducimus fugiat ipsam a, repellat provident rem cumque rerum, libero veritatis? Nemo vel dolores accusamus dolorem. Ipsa, similique labore.
                     </div>
 

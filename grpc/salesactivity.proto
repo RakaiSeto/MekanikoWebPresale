@@ -13,6 +13,10 @@ message SalesActivityLoginList {
   string activityid = 2;
   string uniqueid = 3;
   string activityname = 4;
+  string activitylocation = 5;
+  string activitycity = 6;
+  string activitystart = 7;
+  string activityend = 8;
 }
 message SalesActivityLoginResponse {
   string status = 1;
@@ -215,6 +219,26 @@ message SalesActivityActivationResponse {
   repeated SalesActivitySaveList results = 3;
 }
 
+
+message SalesActivityUploadRequest {
+  string signature = 1;
+  string remoteip = 2;
+  string langid = 3;
+  string weburl = 4;
+  string activityid = 5;
+  string uniqueid = 6;
+  bool isdelete = 7;
+  repeated SalesActivityUploadData data = 8;
+}
+message SalesActivityUploadData {
+  string code = 1;
+  string base63 = 2;
+}
+message SalesActivityUploadResponse {
+  string status = 1;
+  string description = 2;
+}
+
 service SalesActivityService {
 
   rpc DoSalesActivityLogin(SalesActivityLoginRequest) returns (SalesActivityLoginResponse) {}
@@ -223,5 +247,6 @@ service SalesActivityService {
 //  rpc DoSalesActivityCompany(SalesActivityCompanyRequest) returns (SalesActivityCompanyResponse) {}
 //  rpc DoSalesActivityConfirmation(SalesActivityConfirmationRequest) returns (SalesActivityConfirmationResponse) {}
   rpc DoSalesActivitySave(SalesActivitySaveRequest) returns (SalesActivitySaveResponse) {}
+  rpc DoSalesActivityUpload(SalesActivityUploadRequest) returns (SalesActivityUploadResponse) {}
 
 }

@@ -263,6 +263,10 @@ class QrController extends Controller
                 $request->session()->put('activityid', $result->getResults()[0]->getActivityid());
                 $request->session()->put('uniqueid', $result->getResults()[0]->getUniqueid());
                 $request->session()->put('activityname', $result->getResults()[0]->getActivityname());
+                $request->session()->put('activitylocation', $result->getResults()[0]->getActivitylocation());
+                $request->session()->put('activitycity', $result->getResults()[0]->getActivitycity());
+                $request->session()->put('activitystart', $result->getResults()[0]->getActivitystart());
+                $request->session()->put('activityend', $result->getResults()[0]->getActivityend());
                 return redirect("/event" . "/" . $request->id . "/dashboard");
             } else if ($respStatus == ErrorCode::ErrorBadAccount){
                 // Remove sessionId from the session

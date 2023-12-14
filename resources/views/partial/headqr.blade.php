@@ -7,7 +7,7 @@
     <meta name="keywords" content="krapoex, blockchain, crypto exchange" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mekaniko+ Event</title>
-    <link rel="icon shortcut" href="{{URL::asset('assets/img/logo/_mlogo.png')}}">
+    <link rel="icon shortcut" href="{{URL::asset('assets/img/mplusfavicon.png')}}">
     <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}?v=1">
     <script src="{{URL::asset('assets/js/jquery-3.7.1.min.js')}}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js?v=1"></script>
