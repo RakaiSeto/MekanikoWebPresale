@@ -826,7 +826,7 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             // PREFIX is exactly at the beginning
             valueNomor = valueNomor.slice(1);
         }
-        phoneinput.value = countrydata['dialCode'] + phoneinput.value
+        phoneinput.value = countrydata['dialCode'] + valueNomor.value
 
         countrydata2 = iti2.getSelectedCountryData();
         valueNomor2 = compphone.value
@@ -834,7 +834,7 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             // PREFIX is exactly at the beginning
             valueNomor2 = valueNomor2.slice(1);
         }
-        compphone.value = countrydata2['dialCode'] + compphone.value
+        compphone.value = countrydata2['dialCode'] + valueNomor2.value
 
         e.disabled = true;
 
