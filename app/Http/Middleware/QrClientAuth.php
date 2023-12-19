@@ -24,12 +24,14 @@ class QrClientAuth
         $theEncSessionId = convertNilToEmptyString($request->session()->get('token'));
         Log::debug('MW QrClientAuth - enc sessionId: '.$theEncSessionId);
 
-        if ($theEncSessionId != '' && $request->id == $request->session()->get('activityid')) {
-                return $next($request);
+        if ($theEncSessionId != '' && $request->id == $request->session()->get('activityid') && $request->session()->get('savecompanysuccess') == 'true') {
+            return $next($request);
+        } else if ($request->session()->get('addcompanyqrerrormessage') == '') {
+            return $next($request);
         } else {
             // Session not contain data
             Log::debug('MW QrClientAuth - Invalid session.');
-            if (session('addcompanyqr') == true) {
+            if (session('savecompanysuccess') == true) {
                 Session::flash('success', 'Success Input Company. Please check your email inbox for further instructions');
                 return response(view('pages.qr.signin'));
                 // return response(view('pages.qr.signin')->with('success', 'Success Input Company. Please check your email inbox for further instructions'));

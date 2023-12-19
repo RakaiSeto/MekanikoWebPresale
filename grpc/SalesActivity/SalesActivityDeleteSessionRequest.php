@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>SalesActivity.SalesActivityUploadRequest</code>
+ * Generated from protobuf message <code>SalesActivity.SalesActivityDeleteSessionRequest</code>
  */
-class SalesActivityUploadRequest extends \Google\Protobuf\Internal\Message
+class SalesActivityDeleteSessionRequest extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>string signature = 1;</code>
@@ -37,10 +37,6 @@ class SalesActivityUploadRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string uniqueid = 6;</code>
      */
     protected $uniqueid = '';
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityUploadData data = 7;</code>
-     */
-    private $data;
 
     /**
      * Constructor.
@@ -54,7 +50,6 @@ class SalesActivityUploadRequest extends \Google\Protobuf\Internal\Message
      *     @type string $weburl
      *     @type string $activityid
      *     @type string $uniqueid
-     *     @type array<\SalesActivity\SalesActivityUploadData>|\Google\Protobuf\Internal\RepeatedField $data
      * }
      */
     public function __construct($data = NULL) {
@@ -190,28 +185,6 @@ class SalesActivityUploadRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->uniqueid = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityUploadData data = 7;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityUploadData data = 7;</code>
-     * @param array<\SalesActivity\SalesActivityUploadData>|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setData($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \SalesActivity\SalesActivityUploadData::class);
-        $this->data = $arr;
 
         return $this;
     }

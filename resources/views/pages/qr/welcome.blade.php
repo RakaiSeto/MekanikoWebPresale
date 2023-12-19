@@ -98,6 +98,63 @@
             }
         }
 
+        .form-control2 {
+            display: block;
+            width: 100%;
+            min-height: 38px;
+            padding: 6px 12px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #CED4DA;
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 4px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            display: block;
+            width: $width-100;
+            min-height: 45px;
+            padding: 6px 0px 6px 50px !important;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.625;
+            color: #444444;
+            border-radius: 5px;
+            background-color: #fff;
+            :focus {
+                color: #495057;
+                background-color: #fff;
+                border-color: #ffb984;
+                outline: 0;
+                box-shadow: 0 0 0 4px rgba(255, 112, 4, 0.25);
+                color: #495057;
+                background-color: #fff;
+                border-color: #ced4da;
+                outline: 0;
+                box-shadow: none;
+            }
+            ::placeholder {
+                color: #6C757D;
+                opacity: 1;
+            }
+            :disabled {
+                background-color: #E9ECEF;
+                opacity: 1;
+            }
+        }
+
+        .iti{
+            width: 100%
+        }
+
+        span.iti__country-name, span.iti__dial-code{
+            color: #111;
+            display:contents
+        }
+
         @keyframes tofront {
             0% {opacity: 1;}
             99.9% {transform: scale(1.5); opacity: 0;}
@@ -125,6 +182,9 @@
             to {opacity: 0.2;}
         }
     </style>
+    <div id="mobile-forbidden" class="bg-white d-flex align-items-center justify-content-center d-none" style="width: 100vw; position:absolute; z-index:9999;">
+        <h1 class="text-center">Please use mobile device to access this page</h1>
+    </div>
     <div class="d-flex mx-auto mx-auto flex-column" style="width:95vw">
         <div class="wrapper text-center me-2 mt-3 mb-2 d-flex justify-content-center">
 
@@ -160,37 +220,37 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="exampleInputPassword1" class="form-label m-0">Brand<label for="" style="color: red" class="m-0">*</label></label>
-                                  <input type="text" class="form-control1" id="brandinput" aria-describedby="firstnameinput">
+                                  <input autocomplete="false" type="text" class="form-control1" id="brandinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="exampleInputPassword1" class="form-label m-0">Company<label for="" style="color: red" class="m-0">*</label></label>
-                                  <input type="text" class="form-control1" id="companyinput" aria-describedby="lastnameinput">
+                                  <input autocomplete="false" type="text" class="form-control1" id="companyinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="exampleInputPassword1" class="form-label m-0">Address<label for="" style="color: red" class="m-0">*</label></label>
-                                  <input type="text" class="form-control1" id="addressinput" aria-describedby="firstnameinput">
+                                  <input autocomplete="" type="text" class="form-control1" id="addressinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="exampleInputPassword1" class="form-label m-0">City<label for="" style="color: red" class="m-0">*</label></label>
-                                  <input type="text" class="form-control1" id="cityinput" aria-describedby="lastnameinput">
+                                  <input autocomplete="false" type="text" class="form-control1" id="cityinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Region</label>
-                                  <input type="text" class="form-control1" id="regioninput" aria-describedby="firstnameinput">
+                                  <input autocomplete="false" type="text" class="form-control1" id="regioninput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for="exampleInputPassword1" class="form-label m-0">Country<label for="" style="color: red" class="m-0">*</label></label>
-                                    <select class="form-select" onchange="handleClick()" id="countryinput" aria-label="Default select example">
+                                    <select class="form-select" id="countryinput" aria-label="Default select example">
                                         <option disabled selected value class="opacity-0"> -- select an option -- </option>
                                         @foreach ($country as $value1)
                                             <option data-filter="{{$value1->getId()}}" class="catname" value="{{$value1->getId()}}">{{$value1->getName()}}</option>
@@ -201,31 +261,33 @@
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Zipcode</label>
-                                  <input type="number" class="form-control1" id="zipcodeinput" aria-describedby="firstnameinput">
+                                  <input autocomplete="false" type="number" class="form-control1" id="zipcodeinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Email</label>
-                                  <input type="email" class="form-control1" id="compemailinput" aria-describedby="lastnameinput">
+                                  <input autocomplete="false" type="email" class="form-control1" id="compemailinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Phone</label>
-                                  <input type="number" class="form-control1" id="compphoneinput" aria-describedby="firstnameinput">
+                                  <input autocomplete="false" type="tel" class="form-control2" id="compphoneinput" aria-describedby="firstnameinput" style="padding-left: 50px !important">
+                                  <span id="valid-msg1" class="d-none"></span>
+                                  <div id="error-msg1" class="form-group alert alert-danger d-none text-center"></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Fax</label>
-                                  <input type="number" class="form-control1" id="compfaxinput" aria-describedby="lastnameinput">
+                                  <input autocomplete="false" type="number" class="form-control1" id="compfaxinput" aria-describedby="lastnameinput">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col mb-3">
                                   <label for="exampleInputEmail1" class="form-label m-0">Website</label>
-                                  <input type="url" class="form-control1" id="compwebsiteinput" aria-describedby="firstnameinput">
+                                  <input autocomplete="false" type="url" class="form-control1" id="compwebsiteinput" aria-describedby="firstnameinput">
                                 </div>
                             </div>
                         </form>
@@ -266,7 +328,7 @@
                                 <label for="exampleInputPassword1" class="form-label w-100 m-0">Company Subcategory<label for="" style="color: red" class="m-0">*</label></label>
                                 <br>
                                 <select class="form-select" aria-label="Default select example" id="subcatinput">
-                                    <option disabled selected value> -- select an option -- </option>
+                                    {{-- <option disabled selected value> -- select an option -- </option> --}}
                                     @foreach ($subcat as $key1 => $value2)
                                         @foreach ($value2 as $value3)
                                             <option data-type="{{$cat[$key1]->getId()}}" class="subcatname" value="{{$value3->getId()}}">{{$value3->getName()}}</option>
@@ -304,7 +366,9 @@
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label m-0">Phone Number<label for="" style="color: red" class="m-0">*</label></label>
-                              <input type="phone" class="form-control1" id="phoneinput">
+                              <input type="tel" class="form-control2" id="phoneinput" style="padding-left: 50px">
+                              <span id="valid-msg2" class="d-none"></span>
+                              <div id="error-msg2" class="form-group alert alert-danger d-none text-center"></div>
                             </div>
                         </form>
                     </div>
@@ -431,6 +495,50 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function hasTouchSupport() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+
+        // if (hasTouchSupport()) {
+        //     document.getElementById('mobile-forbidden').style.display = 'none';
+        // } else {
+        //     document.getElementById('mobile-forbidden').style.display = 'block';
+        //     // alert(window.innerHeight - document.getElementById('header-qr').getBoundingClientRect().height)
+        //     document.getElementById('mobile-forbidden').style.height = window.innerHeight - document.getElementById('header-qr').getBoundingClientRect().height + "px";
+        // }
+    })
+    // const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"]; 
+    // const phone = document.getElementById("phoneinput");
+    // const compphone = document.getElementById("compphoneinput");
+
+    // const iti = window.intlTelInput(phone, {
+    //     initialCountry: "auto",
+    //     geoIpLookup: callback => {
+    //         fetch("https://ipapi.co/json")
+    //         .then(res => res.json())
+    //         .then(data => callback(data.country_code))
+    //         .catch(() => callback("us"));
+    //     },
+    //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+    //     placeholderNumberType:"MOBILE",
+    //     formatOnDisplay: true,
+    // });
+    // const iti2 = window.intlTelInput(compphone, {
+    //     initialCountry: "auto",
+    //     geoIpLookup: callback => {
+    //         fetch("https://ipapi.co/json")
+    //         .then(res => res.json())
+    //         .then(data => callback(data.country_code))
+    //         .catch(() => callback("us"));
+    //     },
+    //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+    //     placeholderNumberType:"MOBILE",
+    //     formatOnDisplay: true,
+    // });
+</script>
+
+<script>
     nextbtn = document.getElementById('nextbtn-1');
     nextbtn.addEventListener('click', function() {
         document.getElementById('form-1').classList.remove('fromfront')
@@ -551,6 +659,84 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         }
     });
     phoneinput.addEventListener('keyup', function () {
+        let errorMsg = document.getElementById("error-msg2");
+        let validMsg = document.getElementById("valid-msg2");
+        phoneinput.classList.remove("error");
+        errorMsg.innerHTML = "";
+        errorMsg.classList.add("d-none");
+        validMsg.classList.add("d-none");
+        if (phoneinput.value.trim()) {
+            console.log(phoneinput.value.trim());
+            if (iti.isValidNumber()) {
+                validMsg.classList.remove("d-none");
+            } else {
+                phoneinput.classList.add("error");
+                const errorCode = iti.getValidationError();
+                if (errorCode != -99) {
+                    errorMsg.innerHTML = errorMap[errorCode];
+                } else {
+                    errorMsg.innerHTML = "Invalid number"
+                }
+                errorMsg.classList.remove("d-none");
+            }
+        }
+        if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
+            document.getElementById('nextbtn-2').disabled = true
+        } else {
+            document.getElementById('nextbtn-2').disabled = false
+        }
+    });
+
+    const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+    const compphone = document.getElementById("compphoneinput");
+
+    const iti = window.intlTelInput(phoneinput, {
+        initialCountry: "auto",
+        geoIpLookup: callback => {
+            fetch("https://ipapi.co/json")
+            .then(res => res.json())
+            .then(data => callback(data.country_code))
+            .catch(() => callback("us"));
+        },
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+        placeholderNumberType:"MOBILE",
+        formatOnDisplay: true,
+    });
+    const iti2 = window.intlTelInput(compphone, {
+        initialCountry: "auto",
+        geoIpLookup: callback => {
+            fetch("https://ipapi.co/json")
+            .then(res => res.json())
+            .then(data => callback(data.country_code))
+            .catch(() => callback("us"));
+        },
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+        placeholderNumberType:"MOBILE",
+        formatOnDisplay: true,
+    });
+
+    compphone.addEventListener('keyup', function () {
+        let errorMsg = document.getElementById("error-msg1");
+        let validMsg = document.getElementById("valid-msg1");
+        compphone.classList.remove("error");
+        errorMsg.innerHTML = "";
+        errorMsg.classList.add("d-none");
+        validMsg.classList.add("d-none");
+        if (compphone.value.trim()) {
+            console.log(compphone.value.trim());
+            if (iti2.isValidNumber()) {
+                validMsg.classList.remove("d-none");
+            } else {
+                compphone.classList.add("error");
+                const errorCode = iti2.getValidationError();
+                if (errorCode != -99) {
+                    errorMsg.innerHTML = errorMap[errorCode];
+                } else {
+                    errorMsg.innerHTML = "Invalid number"
+                }
+                errorMsg.classList.remove("d-none");
+            }
+        }
         if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
             document.getElementById('nextbtn-2').disabled = true
         } else {
@@ -586,39 +772,6 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         } else {
             document.getElementById('nextbtn-3').disabled = false
             document.getElementById('summarybtn').disabled = false
-        }
-    });
-
-    firstnameinput = document.getElementById('firstnameinput');
-    lastnameinput = document.getElementById('lastnameinput');
-    emailinput = document.getElementById('emailinput');
-    phoneinput = document.getElementById('phoneinput');
-    firstnameinput.addEventListener('keyup', function () {
-        if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
-            document.getElementById('nextbtn-2').disabled = true
-        } else {
-            document.getElementById('nextbtn-2').disabled = false
-        }
-    });
-    lastnameinput.addEventListener('keyup', function () {
-        if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
-            document.getElementById('nextbtn-2').disabled = true
-        } else {
-            document.getElementById('nextbtn-2').disabled = false
-        }
-    });
-    emailinput.addEventListener('keyup', function () {
-        if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
-            document.getElementById('nextbtn-2').disabled = true
-        } else {
-            document.getElementById('nextbtn-2').disabled = false
-        }
-    });
-    phoneinput.addEventListener('keyup', function () {
-        if (firstnameinput.value.length < 1 || lastnameinput.value.length < 1 || emailinput.value.length < 1 || phoneinput.value.length < 1) {
-            document.getElementById('nextbtn-2').disabled = true
-        } else {
-            document.getElementById('nextbtn-2').disabled = false
         }
     });
 
@@ -661,6 +814,53 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         } else {
             document.getElementById('summarybtn').disabled = false
         }
+    });
+
+    button = document.getElementById('submitbtn')
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        countrydata = iti.getSelectedCountryData();
+        valueNomor = phoneinput.value
+        if (valueNomor.startsWith("0")) {
+            // PREFIX is exactly at the beginning
+            valueNomor = valueNomor.slice(1);
+        }
+        phoneinput.value = countrydata['dialCode'] + phoneinput.value
+
+        countrydata2 = iti2.getSelectedCountryData();
+        valueNomor2 = compphone.value
+        if (valueNomor2.startsWith("0")) {
+            // PREFIX is exactly at the beginning
+            valueNomor2 = valueNomor2.slice(1);
+        }
+        compphone.value = countrydata2['dialCode'] + compphone.value
+
+        e.disabled = true;
+
+        var xhr = new XMLHttpRequest();
+
+        var data = "1=" + firstnameinput.value + "&2=" + lastnameinput.value + "&3=" + emailinput.value + "&4=" + phoneinput.value + "&5=" + roleinput.value + "&6=" + catinput.value + "&7=" + subcatinput.value + "&8=" + brandinput.value + "&9=" + companyinput.value + "&10=" + addressinput.value + "&11=" + cityinput.value + "&12=" + regioninput.value + "&13=" + countryinput.value + "&14=" + zipcodeinput.value + "&15=" + compemailinput.value + "&16=" + compphoneinput.value + "&17=" + compfaxinput.value + "&18=" + compwebsiteinput.value;
+        // alert(data)
+
+        xhr.open("POST", "submitcompany", false);
+
+        var csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+        var csrfToken = csrfTokenMeta.getAttribute('content');
+
+        xhr.setRequestHeader("X-CSRF-TOKEN", csrfToken);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    location.replace('after');
+                } else {
+                    location.replace('after');
+                }
+            }
+        };
+
+        xhr.send(data);
     });
 </script>
 <script>
@@ -733,37 +933,6 @@ role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             document.getElementById('summarycompphoneinput').appendChild(document.createTextNode(compphoneinput.value));
             document.getElementById('summarycompfaxinput').appendChild(document.createTextNode(compfaxinput.value));
             document.getElementById('summarycompwebsiteinput').appendChild(document.createTextNode(compwebsiteinput.value));
-        });
-
-        button = document.getElementById('submitbtn')
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            e.disabled = true;
-
-            var xhr = new XMLHttpRequest();
-
-            var data = "1=" + firstnameinput.value + "&2=" + lastnameinput.value + "&3=" + emailinput.value + "&4=" + phoneinput.value + "&5=" + roleinput.value + "&6=" + catinput.value + "&7=" + subcatinput.value + "&8=" + brandinput.value + "&9=" + companyinput.value + "&10=" + addressinput.value + "&11=" + cityinput.value + "&12=" + regioninput.value + "&13=" + countryinput.value + "&14=" + zipcodeinput.value + "&15=" + compemailinput.value + "&16=" + compphoneinput.value + "&17=" + compfaxinput.value + "&18=" + compwebsiteinput.value;
-            // alert(data)
-
-            xhr.open("POST", "submitcompany", false);
-
-            var csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
-            var csrfToken = csrfTokenMeta.getAttribute('content');
-
-            xhr.setRequestHeader("X-CSRF-TOKEN", csrfToken);
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        location.reload();
-                    } else {
-                        location.reload();
-                    }
-                }
-            };
-
-            xhr.send(data);
         });
     })
 </script>

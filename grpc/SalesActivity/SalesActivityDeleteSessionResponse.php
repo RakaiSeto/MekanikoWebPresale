@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>SalesActivity.SalesActivityCompanyResponse</code>
+ * Generated from protobuf message <code>SalesActivity.SalesActivityDeleteSessionResponse</code>
  */
-class SalesActivityCompanyResponse extends \Google\Protobuf\Internal\Message
+class SalesActivityDeleteSessionResponse extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>string status = 1;</code>
@@ -21,10 +21,6 @@ class SalesActivityCompanyResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string description = 2;</code>
      */
     protected $description = '';
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityCompanyList results = 3;</code>
-     */
-    private $results;
 
     /**
      * Constructor.
@@ -34,7 +30,6 @@ class SalesActivityCompanyResponse extends \Google\Protobuf\Internal\Message
      *
      *     @type string $status
      *     @type string $description
-     *     @type array<\SalesActivity\SalesActivityCompanyList>|\Google\Protobuf\Internal\RepeatedField $results
      * }
      */
     public function __construct($data = NULL) {
@@ -82,28 +77,6 @@ class SalesActivityCompanyResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->description = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityCompanyList results = 3;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getResults()
-    {
-        return $this->results;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated .SalesActivity.SalesActivityCompanyList results = 3;</code>
-     * @param array<\SalesActivity\SalesActivityCompanyList>|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setResults($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \SalesActivity\SalesActivityCompanyList::class);
-        $this->results = $arr;
 
         return $this;
     }

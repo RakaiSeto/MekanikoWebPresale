@@ -31,10 +31,6 @@ class SalesActivityServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     *  rpc DoSalesActivityProfile(SalesActivityProfileRequest) returns (SalesActivityProfileResponse) {}
-     *  rpc DoSalesActivityCategory(SalesActivityCategoryRequest) returns (SalesActivityCategoryResponse) {}
-     *  rpc DoSalesActivityCompany(SalesActivityCompanyRequest) returns (SalesActivityCompanyResponse) {}
-     *  rpc DoSalesActivityConfirmation(SalesActivityConfirmationRequest) returns (SalesActivityConfirmationResponse) {}
      * @param \SalesActivity\SalesActivitySaveRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -59,6 +55,20 @@ class SalesActivityServiceClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/SalesActivity.SalesActivityService/DoSalesActivityUpload',
         $argument,
         ['\SalesActivity\SalesActivityUploadResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \SalesActivity\SalesActivityDeleteSessionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function DoSalesActivityDeleteSession(\SalesActivity\SalesActivityDeleteSessionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/SalesActivity.SalesActivityService/DoSalesActivityDeleteSession',
+        $argument,
+        ['\SalesActivity\SalesActivityDeleteSessionResponse', 'decode'],
         $metadata, $options);
     }
 

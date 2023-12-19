@@ -1,4 +1,4 @@
-<header class="ec-header">
+<header class="ec-header" id="header-qr">
     <!--Ec Header Top Start -->
 
     <!-- Ec Header Top  End -->

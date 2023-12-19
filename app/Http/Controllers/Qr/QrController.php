@@ -13,6 +13,7 @@ use Grpc\ChannelCredentials;
 use Illuminate\Support\Facades\Log;
 use Presales\PresalesServiceClient;
 use Presales\PresalesViewRequest;
+use SalesActivity\SalesActivityUploadData;
 use WebEDC\EDCServiceClient;
 use WebEDC\SeeAllTransactionRequest;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,7 @@ use SalesActivity\SalesActivitySaveDataProfile;
 use SalesActivity\SalesActivitySaveRequest;
 use SalesActivity\SalesActivitySaveResponse;
 use SalesActivity\SalesActivityServiceClient;
+use SalesActivity\SalesActivityUploadRequest;
 
 class QrController extends Controller
 {
@@ -214,11 +216,11 @@ class QrController extends Controller
             Log::debug('Add Principal respStatus: '.$respStatus);
 
             if ($respStatus == ErrorCode::ErrorSuccess) {
-                $request->session()->remove('token');
-                $request->session()->put('addcompanyqr', true);
+                $request->session()->put('memberid', $resultall->getResults()[0]->getMemberid());
+                $request->session()->put('savecompanysuccess', true);
                 return http_response_code(200);
             } else {
-                $request->session()->remove('token');
+                $request->session()->put('savecompanysuccess', false);
                 $request->session()->put('addcompanyqrerrormessage', $resultall->getDescription());
                 log::debug($resultall->getDescription());
                 return http_response_code(200);
@@ -226,7 +228,7 @@ class QrController extends Controller
         } else {
             // Failed to call grpc
             // Remove sessionId from the session
-            $request->session()->remove('token');
+            $request->session()->put('savecompanysuccess', false);
             $request->session()->put('addcompanyqrerrormessage', 'Failed to Add Company data. Server not available. Please try again later');
             return http_response_code(200);
         }
@@ -234,6 +236,8 @@ class QrController extends Controller
 
     function doLogin(Request $request) {
         Log::debug('doLogin is called.');
+
+        $request->session()->flush();
         // dd($request->id);
 
         $grpcClient = new SalesActivityServiceClient(webClientGRPCAddress, ['credentials' => ChannelCredentials::createInsecure(),]);
@@ -289,6 +293,113 @@ class QrController extends Controller
             $request->session()->remove('token');
 
             return redirect('/event')->with('message', 'Failed to login. Server not available. Please try again later');
+        }
+    }
+    function uploadFile(Request $request) {
+        Log::debug('afterPage is called.');
+        // dd($request->id);
+
+        return view('pages.qr.upload');
+    }
+
+    function NoUploadFile(Request $request) {
+        Log::debug('noUpload is called.');
+        // dd($request->id);
+
+        $grpcClient = new SalesActivityServiceClient(webClientGRPCAddress, ['credentials' => ChannelCredentials::createInsecure(),]);
+
+        // Prepare the request
+
+        $signinRequest = new SalesActivityUploadRequest();
+        $signinRequest->setRemoteip($request->ip());
+        $signinRequest->setWeburl($request->fullUrl());
+        $signinRequest->setLangid('ID');
+        $signinRequest->setActivityid($request->id);
+        $signinRequest->setSignature($request->session()->get('token'));
+        $signinRequest->setUniqueid($request->session()->get('uniqueid'));
+
+        $signinRequestRepeated = [];
+        $theData = new SalesActivityUploadData();
+        $theData->setMemberid($request->session()->get('memberid'));
+        array_push($signinRequestRepeated, $theData);
+        $signinRequest->setData($signinRequestRepeated);
+
+        list($result, $status) = $grpcClient->DoSalesActivityUpload($signinRequest)->wait();
+
+        $grpcHitStatus = $status->code;
+        Log::debug("No Upload grpcHitStatus: ".$grpcHitStatus);
+        if ($grpcHitStatus === 0) {
+            $respStatus = $result->getStatus();
+            Log::debug('No Upload respStatus: '.$respStatus);
+
+            if ($respStatus == ErrorCode::ErrorSuccess) {
+
+                $request->session()->flush();
+
+                return redirect('/event')->with('success', "Thank you for registering");
+
+            } else {
+                $request->session()->flush();
+
+                return redirect('/event')->with('message', $result->getDescription());
+            }
+        } else {
+            $request->session()->flush();
+
+            return redirect('/event')->with('message', 'Failed to upload data. Server not available. Please try again later');
+        }
+    }
+    function YesUploadFile(Request $request) {
+        Log::debug('YesUpload is called.');
+        // dd($request->id);
+
+        $grpcClient = new SalesActivityServiceClient(webClientGRPCAddress, ['credentials' => ChannelCredentials::createInsecure(),]);
+
+        // Prepare the request
+
+        $signinRequest = new SalesActivityUploadRequest();
+        $signinRequest->setRemoteip($request->ip());
+        $signinRequest->setWeburl($request->fullUrl());
+        $signinRequest->setLangid('ID');
+        $signinRequest->setActivityid($request->id);
+        $signinRequest->setSignature($request->session()->get('token'));
+        $signinRequest->setUniqueid($request->session()->get('uniqueid'));
+
+        $signinRequestRepeated = [];
+        $theData = new SalesActivityUploadData();
+        $theData->setMemberid($request->session()->get('memberid'));
+        
+        $dasarBase64 = $request->input('database64');
+        $arrayBase64 = explode(',', $dasarBase64);
+        $theData->setBase64($arrayBase64[1]);
+        // Log::debug($dasarBase64);
+
+        array_push($signinRequestRepeated, $theData);
+        $signinRequest->setData($signinRequestRepeated);
+
+        list($result, $status) = $grpcClient->DoSalesActivityUpload($signinRequest)->wait();
+
+        $grpcHitStatus = $status->code;
+        Log::debug("Yes Upload grpcHitStatus: ".$grpcHitStatus);
+        if ($grpcHitStatus === 0) {
+            $respStatus = $result->getStatus();
+            Log::debug('Yes Upload respStatus: '.$respStatus);
+
+            if ($respStatus == ErrorCode::ErrorSuccess) {
+
+                $request->session()->remove('token');
+
+                return redirect('/event')->with('success', "Thank you for registering");
+
+            } else {
+                $request->session()->remove('token');
+
+                return redirect('/event')->with('message', $result->getDescription());
+            }
+        } else {
+            $request->session()->remove('token');
+
+            return redirect('/event')->with('message', 'Failed to upload data. Server not available. Please try again later');
         }
     }
 }

@@ -35,12 +35,18 @@ Route::group(['middleware' => ['webclientauth']], function () {
 Route::get('/event', function() {
     return view('pages.qr.signin');
 });
+Route::post('/event', function() {
+    return view('pages.qr.signin');
+});
 Route::get('/event/login/{id}', 'App\Http\Controllers\Qr\QrController@doLogin')->name('dashboard');
 
 Route::group(['middleware' => ['qrclientauth']], function () {
     Route::get('/event/{id}/dashboard', 'App\Http\Controllers\Qr\QrController@showInputPage');
     Route::post('/event/{id}/dashboard', 'App\Http\Controllers\Qr\QrController@showInputPage');
     Route::post('/event/{id}/submitcompany', 'App\Http\Controllers\Qr\QrController@submitCompany');
+    Route::get('/event/{id}/after', 'App\Http\Controllers\Qr\QrController@uploadFile');
+    Route::get('/event/{id}/noupload', 'App\Http\Controllers\Qr\QrController@NoUploadFile');
+    Route::post('/event/{id}/upload', 'App\Http\Controllers\Qr\QrController@YesUploadFile');
 });
 
 // Route::middleware(['adminauth'])->prefix('admin')->group(function () {

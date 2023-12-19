@@ -14,13 +14,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class SalesActivityUploadData extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string code = 1;</code>
+     * Generated from protobuf field <code>string memberid = 1;</code>
      */
-    protected $code = '';
+    protected $memberid = '';
     /**
-     * Generated from protobuf field <code>string base63 = 2;</code>
+     * Generated from protobuf field <code>string base64 = 2;</code>
      */
-    protected $base63 = '';
+    protected $base64 = '';
 
     /**
      * Constructor.
@@ -28,8 +28,8 @@ class SalesActivityUploadData extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $code
-     *     @type string $base63
+     *     @type string $memberid
+     *     @type string $base64
      * }
      */
     public function __construct($data = NULL) {
@@ -38,45 +38,45 @@ class SalesActivityUploadData extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string code = 1;</code>
+     * Generated from protobuf field <code>string memberid = 1;</code>
      * @return string
      */
-    public function getCode()
+    public function getMemberid()
     {
-        return $this->code;
+        return $this->memberid;
     }
 
     /**
-     * Generated from protobuf field <code>string code = 1;</code>
+     * Generated from protobuf field <code>string memberid = 1;</code>
      * @param string $var
      * @return $this
      */
-    public function setCode($var)
+    public function setMemberid($var)
     {
         GPBUtil::checkString($var, True);
-        $this->code = $var;
+        $this->memberid = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>string base63 = 2;</code>
+     * Generated from protobuf field <code>string base64 = 2;</code>
      * @return string
      */
-    public function getBase63()
+    public function getBase64()
     {
-        return $this->base63;
+        return $this->base64;
     }
 
     /**
-     * Generated from protobuf field <code>string base63 = 2;</code>
+     * Generated from protobuf field <code>string base64 = 2;</code>
      * @param string $var
      * @return $this
      */
-    public function setBase63($var)
+    public function setBase64($var)
     {
         GPBUtil::checkString($var, True);
-        $this->base63 = $var;
+        $this->base64 = $var;
 
         return $this;
     }

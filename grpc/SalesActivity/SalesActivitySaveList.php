@@ -18,11 +18,15 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
      */
     protected $type = '';
     /**
-     * Generated from protobuf field <code>string email = 2;</code>
+     * Generated from protobuf field <code>string memberid = 2;</code>
+     */
+    protected $memberid = '';
+    /**
+     * Generated from protobuf field <code>string email = 3;</code>
      */
     protected $email = '';
     /**
-     * Generated from protobuf field <code>string password = 3;</code>
+     * Generated from protobuf field <code>string password = 4;</code>
      */
     protected $password = '';
 
@@ -33,6 +37,7 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $type
+     *     @type string $memberid
      *     @type string $email
      *     @type string $password
      * }
@@ -65,7 +70,29 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string email = 2;</code>
+     * Generated from protobuf field <code>string memberid = 2;</code>
+     * @return string
+     */
+    public function getMemberid()
+    {
+        return $this->memberid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string memberid = 2;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMemberid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->memberid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string email = 3;</code>
      * @return string
      */
     public function getEmail()
@@ -74,7 +101,7 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string email = 2;</code>
+     * Generated from protobuf field <code>string email = 3;</code>
      * @param string $var
      * @return $this
      */
@@ -87,7 +114,7 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string password = 3;</code>
+     * Generated from protobuf field <code>string password = 4;</code>
      * @return string
      */
     public function getPassword()
@@ -96,7 +123,7 @@ class SalesActivitySaveList extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string password = 3;</code>
+     * Generated from protobuf field <code>string password = 4;</code>
      * @param string $var
      * @return $this
      */
